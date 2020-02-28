@@ -52,4 +52,27 @@ app.delete('/record', (req, res) => {
   })
 })
 
-app.listen(port, () => console.log(`\nlistening on port ${port}`))
+db.query(
+  `CREATE TABLE IF NOT EXISTS \`record\` (
+  \`id\` int(11) NOT NULL AUTO_INCREMENT,
+  \`name\` varchar(45) DEFAULT NULL,
+  \`email\` varchar(45) DEFAULT NULL,
+  \`password\` varchar(45) DEFAULT NULL,
+  \`shipTo1\` varchar(45) DEFAULT NULL,
+  \`shipTo2\` varchar(45) DEFAULT NULL,
+  \`city\` varchar(45) DEFAULT NULL,
+  \`state\` varchar(45) DEFAULT NULL,
+  \`zip\` varchar(45) DEFAULT NULL,
+  \`phone\` varchar(45) DEFAULT NULL,
+  \`creditCard\` varchar(45) DEFAULT NULL,
+  \`expDate\` varchar(45) DEFAULT NULL,
+  \`cvv\` varchar(45) DEFAULT NULL,
+  \`billingZip\` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (\`id\`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+  `,
+  err => {
+    if (err) throw err
+    app.listen(port, () => console.log(`\nlistening on port ${port}`))
+  }
+)
