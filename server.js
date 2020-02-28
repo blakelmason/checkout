@@ -5,12 +5,14 @@ const mysql = require('mysql')
 
 const app = express()
 const port = process.env.PORT || 3000
-const db = mysql.createConnection({
-  host: process.env.DBHOST,
-  user: process.env.DBUSER,
-  password: process.env.DBPASSWORD,
-  database: process.env.DB
-})
+const db = mysql.createConnection(
+  process.env.JAWSDB_URL || {
+    host: process.env.DBHOST,
+    user: process.env.DBUSER,
+    password: process.env.DBPASSWORD,
+    database: process.env.DB
+  }
+)
 
 db.connect()
 
