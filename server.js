@@ -59,7 +59,6 @@ db.query(
   \`email\` varchar(45) DEFAULT NULL,
   \`password\` varchar(45) DEFAULT NULL,
   \`shipTo1\` varchar(45) DEFAULT NULL,
-  \`shipTo2\` varchar(45) DEFAULT NULL,
   \`city\` varchar(45) DEFAULT NULL,
   \`state\` varchar(45) DEFAULT NULL,
   \`zip\` varchar(45) DEFAULT NULL,
